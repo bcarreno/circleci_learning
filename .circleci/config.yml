@@ -1,0 +1,23 @@
+# extras/dot_circleci_config-lesson_2_solution.yml
+
+version: 2.1
+jobs:
+  say-hello:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command: "echo Hello, world"
+  say-hi:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: echo "Hi there"      
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
+      - say-hi
