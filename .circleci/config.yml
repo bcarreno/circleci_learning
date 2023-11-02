@@ -5,6 +5,10 @@ jobs:
   say-hello:
     docker:
       - image: cimg/base:stable
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    resource_class: small                # default is large
     steps:
       - checkout
       - run:
